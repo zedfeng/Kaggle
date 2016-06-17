@@ -7,7 +7,7 @@ import numpy as np
 
 # train data
 train_data_path = os.path.join(os.path.dirname(__file__) + '/Data/train.csv')
-train_data = pd.read_csv(train_data_path, header=0, dtype={"Age": np.float64})
+train_data = pd.read_csv(train_data_path, header=0, dtype={'Age': np.float64})
 # clean useless data
 train_data.drop(['PassengerId', 'Name', 'Ticket', 'Cabin'], inplace=True, axis=1)
 
@@ -34,7 +34,7 @@ for i in range(0, 2):
 
 # test data
 test_data_path = os.path.join(os.path.dirname(__file__) + '/Data/test.csv')
-test_data = pd.read_csv(test_data_path, header=0, dtype={"Age": np.float64})
+test_data = pd.read_csv(test_data_path, header=0, dtype={'Age': np.float64})
 # clean useless data
 test_data.drop(['Name', 'Ticket', 'Cabin'], inplace=True, axis=1)
 # convert data to float
