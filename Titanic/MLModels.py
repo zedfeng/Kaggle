@@ -27,7 +27,7 @@ title_dictionary = {
     "Lady": 1
 }
 # train data
-train_data_path = os.path.join(os.path.dirname(__file__) + '/Data/train.csv')
+train_data_path = os.path.dirname(__file__) + '/Data/train.csv'
 train_data = pd.read_csv(train_data_path, header=0, dtype={'Age': np.float64})
 # clean useless data
 train_data.drop(['PassengerId', 'Ticket', 'Cabin'], inplace=True, axis=1)
@@ -55,7 +55,7 @@ for i in range(0, 2):
 train_data['Title'] = train_data['Name'].apply(
     lambda x: title_dictionary[x.split(',')[1].split('.')[0].strip()])
 # test data
-test_data_path = os.path.join(os.path.dirname(__file__) + '/Data/test.csv')
+test_data_path = os.path.dirname(__file__) + '/Data/test.csv'
 test_data = pd.read_csv(test_data_path, header=0, dtype={'Age': np.float64})
 # clean useless data
 test_data.drop(['Ticket', 'Cabin'], inplace=True, axis=1)
@@ -91,7 +91,9 @@ random_forest = RandomForestClassifier(n_estimators=1000)
 random_forest.fit(x_train, y_train)
 y_predict = random_forest.predict(x_test)
 print(random_forest.score(x_train, y_train))
-result_path = os.path.join(os.path.dirname(__file__) + '/Data/RandomForestModel.csv')
+print(x_train)
+print(x_test)
+result_path = os.path.dirname(__file__) + '/Data/RandomForestModel.csv'
 result = pd.DataFrame({'PassengerId': test_data['PassengerId'], 'Survived': y_predict})
 result.to_csv(result_path, index=False)
 # logistic regression
@@ -99,6 +101,6 @@ log_reg = LogisticRegression()
 log_reg.fit(x_train, y_train)
 y_predict = log_reg.predict(x_test)
 print(log_reg.score(x_train, y_train))
-result_path = os.path.join(os.path.dirname(__file__) + '/Data/LogisticRegressionModel.csv')
+result_path = os.path.dirname(__file__) + '/Data/LogisticRegressionModel.csv'
 result = pd.DataFrame({'PassengerId': test_data['PassengerId'], 'Survived': y_predict})
 result.to_csv(result_path, index=False)

@@ -3,7 +3,7 @@ import csv
 import os
 
 # open data file
-test_data_path = os.path.join(os.path.dirname(__file__) + '/Data/test.csv')
+test_data_path = os.path.dirname(__file__) + '/Data/test.csv'
 test_data_file = open(test_data_path)
 test_data_file_object = csv.reader(test_data_file)
 # get header
@@ -14,7 +14,7 @@ for row in test_data_file_object:
     test_data.append(row)
 test_data = np.array(test_data)
 # data processing
-result_path = os.path.join(os.path.dirname(__file__) + '/Data/GenderBasedModel.csv')
+result_path = os.path.dirname(__file__) + '/Data/GenderBasedModel.csv'
 result_file = open(result_path, 'w', newline='')
 result_file_object = csv.writer(result_file)
 result_file_object.writerow(["PassengerId", "Survived"])

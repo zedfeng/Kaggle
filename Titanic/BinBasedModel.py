@@ -3,7 +3,7 @@ import csv
 import os
 
 # open data file
-train_data_path = os.path.join(os.path.dirname(__file__) + '/Data/train.csv')
+train_data_path = os.path.dirname(__file__) + '/Data/train.csv'
 train_data_file = open(train_data_path)
 train_data_file_object = csv.reader(train_data_file)
 # get header
@@ -37,11 +37,11 @@ table_survived[table_survived >= 0.5] = 1
 print(table_survived)
 train_data_file.close()
 # make prediction
-test_data_path = os.path.join(os.path.dirname(__file__) + '/Data/test.csv')
+test_data_path = os.path.dirname(__file__) + '/Data/test.csv'
 test_data_file = open(test_data_path)
 test_data_file_object = csv.reader(test_data_file)
 test_header = next(test_data_file_object)
-result_path = os.path.join(os.path.dirname(__file__) + '/Data/BinBasedModel.csv')
+result_path = os.path.dirname(__file__) + '/Data/BinBasedModel.csv'
 result_file = open(result_path, 'w', newline='')
 result_file_object = csv.writer(result_file)
 result_file_object.writerow(["PassengerId", "Survived"])
